@@ -1,22 +1,34 @@
 pipeline {
-     agent any
-  stages {
-     stage('Checkout') {
-          steps {
-              echo 'Checking out repository code...'
-              checkout scm
+    agent any
+stages 
+[
+ stages {
+    stage('Checkout') {
+        steps {
+           echo 'Checking out code...'
+         }
+      }
+      stage('Bulid') {
+           steps
+
+
+steps 
+{
+   echo 'Buliding and Validating Python application...'
+   sh 'python3 -m py_complie app.py'
+}
+}
+stages('Test') {
+       steps {
+           echo 'Running tests...'
+           sh 'python3 -m unittest -v test_app.py'
+       }
+    }
+    stage('Validation') {
+           steps {
+              echo 'Validation stage completed successfully!'
            }
-        }
-        stage('Bulid') {
-             steps {
-                 echo 'Validating application...'
-                 sh 'python3 -m py_compile app.py'
-              }
-           }
-           stage('Test') {
-                steps {
-                     echo 'Running Code Validation...'
-                     sh 'python3 -c "import app; print(\'Validation Stage Completed Successfully!\')"
+        
 }
 }
 }
