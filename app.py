@@ -1,6 +1,9 @@
-def add
 def add(a, b):
-    return a + b
+      return a + b
 
-if--name-- = "--main--":
-    print("Application is running successfully!")
+def subtract(a, b):
+       return a - b
+
+if --name-- = "--main--";
+if __name__ = "__main__":
+    print(f"2 + 3 = {add(2, 3)}")
