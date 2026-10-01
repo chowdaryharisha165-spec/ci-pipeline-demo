@@ -1,34 +1,28 @@
 pipeline {
-    agent any
-stages 
-[
- stages {
+     agent any
+
+stages {
     stage('Checkout') {
-        steps {
-           echo 'Checking out code...'
-         }
+            steps {
+                echo 'Checking out code...'
+           }
       }
       stage('Bulid') {
-           steps
-
-
-steps 
-{
-   echo 'Buliding and Validating Python application...'
-   sh 'python3 -m py_complie app.py'
-}
-}
-stages('Test') {
-       steps {
-           echo 'Running tests...'
-           sh 'python3 -m unittest -v test_app.py'
-       }
+            steps {
+                echo 'Buliding and Validating python applications...'
+                sh 'python3 -m py_compile app_py'
+            }
+        }
+        stage('Test') {
+             steps {
+                 echo 'Running tests...'
+                 sh 'python3 -m unittest -v test_app.py'
+             }
+        }
+        stage('Validation') {
+              steps {
+                 echo 'Validation stage completed successfully!'
+            }
+        }
     }
-    stage('Validation') {
-           steps {
-              echo 'Validation stage completed successfully!'
-           }
-        
-}
-}
-}
+ }
