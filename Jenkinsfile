@@ -10,7 +10,7 @@ stages {
       stage('Bulid') {
             steps {
                 echo 'Buliding and Validating python applications...'
-                sh 'python3 -m py_compile app_py'
+                sh 'python3 -m py_compile app.py'
             }
         }
         stage('Test') {
